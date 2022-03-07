@@ -1,0 +1,19 @@
+<div *ngIf="product" class="product">
+    <img [src]="product.image" class="product__image" />
+    <div class="product__info">
+        <p class="product__el">{{ product.name }}</p>
+        <p class="product__el">Rating: {{ product.stars }}</p>
+
+        <p class="product__el">{{ product.description }}</p>
+        <p class="product__el product__el__price">Price: {{ product.price }}$</p>
+        <a class="product__el product__more-info" [routerLink]="['/list', product.id]">
+          Show more info
+        </a>
+
+        <div class="product__buttons" *ngIf="enableProductEdit">
+            <button class="product__button product__button--delete" (click)="deleteProduct()">Delete</button>
+
+        </div>
+
+    </div>
+</div>

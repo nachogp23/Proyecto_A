@@ -1,0 +1,16 @@
+<div class="products">
+    <div class="products__header">
+        <p class="products__header__title">Products List</p>
+        <!-- <p> {{ emptyList ? "No products to show" : "" }}</p> -->
+        <p *ngIf="emptyList" class="products__header__empty">No products to show</p>
+        <button (click)="modifyProducts()" class="products__header__button">
+      {{ enableProductEdit ? "Stop Editing" : "Modify" }}
+    </button>
+    </div>
+
+    <input [(ngModel)]="filterValue" placeholder="Write product name...">
+    <div class="products__list">
+        <app-product *ngFor="let product of (productsList )" [product]="product" [enableProductEdit]="enableProductEdit" (onDeleteProduct)="deleteParentProduct($event)">
+        </app-product>
+    </div>
+</div>
