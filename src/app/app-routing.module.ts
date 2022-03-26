@@ -24,6 +24,11 @@ const routes: Routes = [
   },
 
   {
+    path: "edit-product/:id",
+    loadChildren: () => import("src/app/pages/edit-product/edit-product.module").then(m => m.EditProductModule)
+  },
+
+  {
     path: "product-list/:id",
     loadChildren: () => import("src/app/pages/product-detail/product-detail.module").then(m => m.ProductDetailModule)
   },

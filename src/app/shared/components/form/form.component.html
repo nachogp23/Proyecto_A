@@ -1,1 +1,43 @@
-<p>form works!</p>
+<form *ngIf="createProductForm" [formGroup]="createProductForm" (submit)="saveProduct($event)" class="form">
+    <div class="field-container">
+        <input class="form__input" placeholder="Name" formControlName="name" />
+        <p *ngIf="
+        !createProductForm.get('name')?.valid
+        && createProductForm.get('name')?.dirty" class="input-error">
+            This value is requiered
+        </p>
+    </div>
+
+    <div class="field-container">
+        <input class="form__input" placeholder="Price" formControlName="price" />
+        <p *ngIf="!createProductForm.get('price')?.valid
+        && createProductForm.get('price')?.dirty
+        && createProductForm.get('price')?.errors?.['required']" class="input-error">
+            This value is requiered
+        </p>
+
+        <p *ngIf="!createProductForm.get('price')?.valid
+        && createProductForm.get('price')?.dirty
+        && createProductForm.get('price')?.errors?.['maxlength']" class="input-error">
+            The value exceeds the maximum proce length
+        </p>
+    </div>
+
+    <div class="field-container">
+        <input class="form__input" placeholder="Image" formControlName="image" />
+    </div>
+
+    <div class="field-container">
+        <input class="form__input" placeholder="Description" formControlName="description" />
+    </div>
+
+    <div class="field-container">
+        <input class="form__input" placeholder="Valoration" formControlName="stars" />
+    </div>
+
+    <div *ngIf="!product" class="field-container">
+        <input class="form__input" placeholder="ID" formControlName="id" />
+    </div>
+
+    <button class="form__button" type="submit" [disabled]="!createProductForm.valid">{{product ? "Edit": "Create"}}</button>
+</form>

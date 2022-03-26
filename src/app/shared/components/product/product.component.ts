@@ -28,4 +28,8 @@ export class ProductComponent implements OnInit {
     }
   }
 
+  public editProduct() {
+    this.router.navigate(['/edit-product', this.product?.id]);
+  }
+
 }

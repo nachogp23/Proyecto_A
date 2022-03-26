@@ -1,1 +1,14 @@
-<p>product-detail works!</p>
+<div *ngIf="product" class="product">
+    <img class="product__image" [src]="product?.image" />
+    <div class="product__info">
+        <p>{{ product.name }}</p>
+        <p class="product__price">Price: {{ product?.price }}$</p>
+        <p class="product__description">{{ product?.description }}</p>
+        <p class="product__stars">Rating: </p>
+        <span *ngIf="stars === 1">⭐</span>
+        <span *ngIf="stars === 2">⭐⭐</span>
+        <span *ngIf="stars === 3">⭐⭐⭐</span>
+        <span *ngIf="stars === 4">⭐⭐⭐⭐</span>
+        <span *ngIf="stars === 5">⭐⭐⭐⭐⭐</span>
+    </div>
+</div>

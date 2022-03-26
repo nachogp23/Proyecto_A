@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseApiUrl: "https://my-json-server.typicode.com/franlindebl/shopeame-api-v2/products"
+  baseApiUrl: "https://my-json-server.typicode.com/franlindebl/shopeame-api-v2/"
 };
 
 /*

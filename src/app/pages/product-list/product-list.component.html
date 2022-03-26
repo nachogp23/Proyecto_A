@@ -6,11 +6,14 @@
         <button (click)="modifyProducts()" class="products__header__button">
       {{ enableProductEdit ? "Stop Editing" : "Modify" }}
     </button>
+
+        <!--<button *ngIf="update " (click)="updateProductList"> Update </button>-->
     </div>
 
-    <input [(ngModel)]="filterValue" placeholder="Write product name...">
+    <input [(ngModel)]="filterValue" placeholder="Write product name..." />
     <div class="products__list">
-        <app-product *ngFor="let product of (productsList )" [product]="product" [enableProductEdit]="enableProductEdit" (onDeleteProduct)="deleteParentProduct($event)">
+        <app-product *ngFor="let product of (productsList | filterProduct: filterValue)" [product]="product" [enableProductEdit]="enableProductEdit" (onDeleteProduct)="deleteParentProduct($event)">
+            <!-- <app-product *ngFor="let product of productsList " [product]="product" [enableProductEdit]="enableProductEdit" (onDeleteProduct)="deleteParentProduct($event)"> -->
         </app-product>
     </div>
 </div>
